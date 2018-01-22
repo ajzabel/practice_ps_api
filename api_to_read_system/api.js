@@ -40,7 +40,6 @@ function getProcesses() {
         }
         //Here is the magic!
         processInfo.ppid = parseInt(tempvar1[i].substring(0,6));//PPID can be no more than 99999
-        console.log(tempvar1[i].substring(0,indexPPID));
         processInfo.pid = parseInt(tempvar1[i].substring(indexPPID, indexUCOMM-1));
         processInfo.name = tempvar1[i].substring(indexUCOMM-1, indexCMD-1);
         if(!tempvar1[i].substring(indexCMD-1, tempvar1[i].length) ){
@@ -64,7 +63,7 @@ function getProcesses() {
 function getEnv() {
   getProcesses().then((data,error) => {
     for(i=0;i<data.length;i++) {
-      //console.log(data);
+      console.log(data);
       // if(data[i].pid != NaN) {
       //   console.log(hello.execSync('cat /proc/' + data[i].pid + '/environ'));
       // }
