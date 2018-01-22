@@ -25,10 +25,6 @@ function getProcesses() {
       let indexPID = tempvarStr.indexOf('PID', indexPPID+4);
       let indexUCOMM = tempvarStr.indexOf('UCOMM');
       let indexCMD = tempvarStr.indexOf('ARGS');
-      console.log("indexPPID: " + indexPPID)
-      console.log("indexPID: " + indexPID)
-      console.log("indexUCOMM: " + indexUCOMM)
-      console.log("indexCMD: " + indexCMD)
       //order = [ppid,pid,ucomm,command]
       for(i=1;i<tempvar1.length;i++){
         let processInfo = {
@@ -65,7 +61,7 @@ function getEnv() {
     for(i=0;i<data.length;i++) {
       //console.log(data);
       if(data[i].pid != NaN) {
-        console.log(hello.execSync('cat /proc/' + data[i].pid + '/environ'));
+        console.log(hello.execSync('cat /proc/' + data[i].pid + '/environ').toString('utf8'));
       }
     }
   })
