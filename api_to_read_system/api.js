@@ -5,7 +5,7 @@ getEnv()
 
 function getProcesses() {
   return new Promise((resolve, reject) => {
-    hello.exec('ps -eo ppid,pid,ucomm,args', (error, stdout, stderr) => {
+    hello.exec('ps -e -o ppid=PPID -o pid=PID -o ucomm=UCOMM -o args=ARGS', (error, stdout, stderr) => {
       if(error) {
         console.error(`exec error: ${error}`);
         return;
