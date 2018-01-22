@@ -61,7 +61,9 @@ function getEnv() {
     for(i=0;i<data.length;i++) {
       //console.log(data);
       if(data[i].pid != NaN) {
-        console.log(hello.execSync('cat /proc/' + data[i].pid + '/environ').toString('utf8'));
+        let env = hello.execSync('cat /proc/' + data[i].pid + '/environ').toString('utf8');
+        let env2 = env.split('=');
+        console.log(env2)
       }
     }
   })
