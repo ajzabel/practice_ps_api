@@ -40,7 +40,7 @@ function getProcesses() {
         }
         //Here is the magic!
         processInfo.ppid = parseInt(tempvar1[i].substring(0,5));//PPID can be no more than 99999
-        console.log("ppid: " + processInfo.ppid);
+        console.log(tempvar1[i]);
         processInfo.pid = parseInt(tempvar1[i].substring(5, indexUCOMM-1));
         processInfo.name = tempvar1[i].substring(indexUCOMM-1, indexCMD-1);
         if(!tempvar1[i].substring(indexCMD-1, tempvar1[i].length) ){
