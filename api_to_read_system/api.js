@@ -59,8 +59,9 @@ function getProcesses() {
 function getEnv() {
   getProcesses().then((data,error) => {
     for(i=0;i<data.length;i++) {
-      console.log(hello.execSync('cat /proc/' + data[i].pid + '/environ'));
-
+      if(data[i].pid != NaN) {
+        console.log(hello.execSync('cat /proc/' + data[i].pid + '/environ'));
+    }
     }
   })
 }
