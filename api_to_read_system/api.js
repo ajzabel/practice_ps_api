@@ -64,11 +64,11 @@ function getEnv() {
         let env = hello.execSync('cat /proc/' + data[i].pid + '/environ').toString('utf8');
         let varName = env.match(/[A-Z*_*]+\=+/g);
         console.log(varName);
-        let varValue = varName.map(x => testString.match(x))
-        console.log(varValue);
-        for(i=0;i<(varValue.length-1);i++){
-          console.log(testString.substr(varValue[i].index, varValue[i+1].index - varValue[i].index));
-        }
+        //let varValue = varName.map(x => testString.match(x))
+        //console.log(varValue);
+        // for(i=0;i<(varValue.length-1);i++){
+        //   console.log(testString.substr(varValue[i].index, varValue[i+1].index - varValue[i].index));
+        // }
 
       }
     }
