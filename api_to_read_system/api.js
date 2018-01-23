@@ -68,7 +68,7 @@ function getEnv() {
           if(varName != null) {
             let varValue = varName.map(x => env.match(x))
             for(j=0; j<(varValue.length -1);j++){
-              console.log(env.substr(varValue[j].index, varValue[j+1].index - varValue[j].index));
+              data[i].env.push(env.substr(varValue[j].index, varValue[j+1].index - varValue[j].index)));
             }
           }
         }
@@ -77,5 +77,6 @@ function getEnv() {
         }
       }
     }
+    console.log(data);
   })
 }
