@@ -53,7 +53,7 @@ function getEnv() {
   getProcesses().then((data,error) => {
     for(i=0;i<data.length;i++) {
       if(data[i].pid != NaN) {
-        if( hello.execSync('test -e /proc/' + data[i].pid + '/environ ; echo $?').toString('utf8') == 0) {
+        if(hello.execSync('test -e /proc/' + data[i].pid + '/environ ; echo $?').toString('utf8') == 0) {
           let env = hello.execSync('cat /proc/' + data[i].pid + '/environ').toString('utf8');
           let varName = env.match(/[A-Z*_*]+\=+/g);
           if(varName != null) {

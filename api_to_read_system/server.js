@@ -23,7 +23,7 @@ app.use((req, res, next) => {
     else next();
 });
 
-
+//run getEnv() runction when hitting /ps endpoint
 app.get(`/ps`, (req, res) => {
   return res.send(processEnv.getEnv());
 });
