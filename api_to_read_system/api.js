@@ -63,10 +63,9 @@ function getEnv() {
       if(data[i].pid != NaN) {
         console.log()
         if( hello.execSync('test -e /proc/' + data[i].pid + '/environ ; echo $?').toString('utf8') == 0) {
-          let env = hello.execSync('cat /proc/' + data[i].pid + '/environ')//.toString('utf8');
-          console.log(env);
-          //let varName = env.match(/[A-Z*_*]+\=+/g);
-          //console.log(varName);
+          let env = hello.execSync('cat /proc/' + data[i].pid + '/environ').toString('utf8');
+          let varName = env.match(/[A-Z*_*]+\=+/g);
+          console.log(varName);
         }
         else {
           continue;
