@@ -1,8 +1,6 @@
 const hello = require('child_process'),
       fs = require('fs');
 
-getEnv()
-
 function getProcesses() {
   return new Promise((resolve, reject) => {
     hello.exec('ps -e -o ppid=PPID -o pid=PID -o ucomm=UCOMM -o args=ARGS', (error, stdout, stderr) => {
@@ -15,7 +13,6 @@ function getProcesses() {
       var masterProcessInfo = [];
 
       tempvar1 = var1.split(/\r?\n/)
-      //console.log(tempvar1);
       for(j=0;j<tempvar1.length;j++) {
 
       }
@@ -77,6 +74,8 @@ function getEnv() {
         }
       }
     }
-    console.log(data);
+    return data;
   })
 }
+
+modeule.exports = {getEnv};
