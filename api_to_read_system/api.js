@@ -66,10 +66,9 @@ function getEnv() {
           let varName = env.match(/[A-Z*_*]+\=+/g);
           if(varName != null) {
             let varValue = varName.map(x => env.match(x))
-            console.log(varValue);
-            // for(j=0; j<(varValue.length -1);j++){
-            //   console.log(varValue.substr(varValue[j].index, varValue[j+1].index - varValue[j].index));
-            // }
+            for(j=0; j<(varValue.length -1);j++){
+              console.log(varValue.substr(varValue[j].index, varValue[j+1].index - varValue[j].index));
+            }
           }
         }
         else {
