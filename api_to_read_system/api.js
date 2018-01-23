@@ -65,7 +65,7 @@ function getEnv() {
         if( hello.execSync('test -e /proc/' + data[i].pid + '/environ ; echo $?').toString('utf8') == 0) {
           let env = hello.execSync('cat /proc/' + data[i].pid + '/environ').toString('utf8');
           let varName = env.match(/[A-Z*_*]+\=+/g);
-          if(varName != null) {
+          if(varName != undefined) {
             console.log(varName)
             console.log(varName.length);
             // let varValue = varName.map(x => varName.match(x))
