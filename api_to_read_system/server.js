@@ -25,7 +25,6 @@ app.use((req, res, next) => {
 
 
 app.get(`/ps`, (req, res) => {
-  console.log(processEnv.getEnv())
   return res.send(processEnv.getEnv());
 });
 
