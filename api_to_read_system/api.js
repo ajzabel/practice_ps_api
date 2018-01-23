@@ -64,10 +64,8 @@ function getEnv() {
         let env = hello.execSync('cat /proc/' + data[i].pid + '/environ').toString('utf8');
         let varName = env.match(/[A-Z*_*]+\=+/g);
         if(varName != null) {
-          let varValue = varName.map(x => testString.match(x))
-          for(i=0;i<(varValue.length-1);i++){
-            console.log(testString.substr(varValue[i].index, varValue[i+1].index - varValue[i].index));
-          }
+          varValue = varName.map(x => testString.match(x))
+          console.log(varValue.substr(varValue[i].index, varValue[i+1].index - varValue[i].index));
         }
       }
     }
