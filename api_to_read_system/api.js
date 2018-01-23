@@ -78,4 +78,4 @@ function getEnv() {
   })
 }
 
-modeule.exports = {getEnv};
+module.exports = {getEnv};
