@@ -61,11 +61,15 @@ function getEnv() {
     for(i=0;i<data.length;i++) {
       //console.log(data);
       if(data[i].pid != NaN) {
-        let env = hello.execSync('cat /proc/' + data[i].pid + '/environ')//.toString('utf8');
-        console.log(env);
-        //let varName = env.match(/[A-Z*_*]+\=+/g);
-        //console.log(varName);
-
+        if( hello.execSync('test -e /proc/124934/environ ; echo $?').toString('utl8') == 0) {
+          let env = hello.execSync('cat /proc/' + data[i].pid + '/environ')//.toString('utf8');
+          console.log(env);
+          //let varName = env.match(/[A-Z*_*]+\=+/g);
+          //console.log(varName);
+        }
+        else {
+          continue;
+        }
         // if(varName != null) {
         //   varValue = varName.map(x => varName.match(x))
         //   console.log(varValue.substr(varValue[i].index, varValue[i+1].index - varValue[i].index));
