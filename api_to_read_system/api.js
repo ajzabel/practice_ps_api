@@ -11,11 +11,7 @@ function getProcesses() {
       let var1 = `${stdout}`;
       let var2 = `${stderr}`;
       var masterProcessInfo = [];
-
       tempvar1 = var1.split(/\r?\n/)
-      for(j=0;j<tempvar1.length;j++) {
-
-      }
       let tempvarStr = JSON.stringify(tempvar1[0])
       //Indicies + num char for PID is how it's organaized
       let indexPPID = tempvarStr.indexOf('PPID')+3; //index of when PPID's stop
@@ -56,12 +52,10 @@ function getProcesses() {
 function getEnv() {
   getProcesses().then((data,error) => {
     for(i=0;i<data.length;i++) {
-      //console.log(data);
       if(data[i].pid != NaN) {
         if( hello.execSync('test -e /proc/' + data[i].pid + '/environ ; echo $?').toString('utf8') == 0) {
-          let env = hello.execSync('cat /proc/' + data[i].pid + '/environ').toString('utf8');
+          let env = hello.execSync('sudo cat /proc/' + data[i].pid + '/environ').toString('utf8');
           let varName = env.match(/[A-Z*_*]+\=+/g);
-          console.log("ENV: " + env);
           if(varName != null) {
             let varValue = varName.map(x => env.match(x))
             for(j=0; j<(varValue.length -1);j++){

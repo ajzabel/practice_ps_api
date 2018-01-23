@@ -25,7 +25,8 @@ app.use((req, res, next) => {
 
 
 app.get(`/ps`, (req, res) => {
-  return processEnv.getEnv();
+  console.log(processEnv.getEnv())
+  return res.send(processEnv.getEnv());
 });
 
 app.all('/*', (req, res) => {
